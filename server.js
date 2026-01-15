@@ -19,12 +19,14 @@ const app = express();
 // 1. Request Entrance
 // ===============================
 
-// * Let coming browser request to enter publicfolder ( CSS, images, JS)  // Middleware DESIGN PATTERN
-app.use(express.static("public")); 
-// * Convert incoming json data to object structure  // Middleware DESIGN PATTERN > Rest API support
-app.use(express.json());
-// * Get POSTed input data which coming from traditional form request  // Middleware DESIGN PATTERN > Traditional API support
-app.use(express.urlencoded({extended: true}));
+// * Let coming browser request to enter public folder (CSS, images, JS)
+app.use(express.static("public")); // Middleware DESIGN PATTERN
+
+// * Convert incoming json data to object structure
+app.use(express.json()); // Middleware DESIGN PATTERN > Rest API support
+
+// * Get POSTed input data which coming from traditional form request 
+app.use(express.urlencoded({extended: true})); // Middleware DESIGN PATTERN > Traditional API support
 
 
 // ===============================
@@ -78,13 +80,13 @@ System design: Pettern "qolip"
 
 PATTERNS:
   - ARCHITECTURE PATTERN (MVC/DI "dependency injection")
-  - DESIGN PATTERN (MIDDLEWARE/DECORATOR)
+  - DESIGN PATTERN (MIDDLEWARE/DECORATORS)
 
 FRONTEND BUILD:
   - BSSR (EJS)
   - SPA "single page application" (REACT)
 
-API REQUEST:
+API REQUEST criteria:
   - TYPE      > Traditional API | Rest API | GraphQL API
   - METHOD    > GET | POST
   - STRUCTURE > header | body
